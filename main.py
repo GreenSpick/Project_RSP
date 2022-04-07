@@ -22,13 +22,13 @@ def comparison(a, b):
 def IntToString(a):
     return option[a-1]
 
-option = ["Stone", "Scissors", "Paper"]
+option = ["Rock", "Scissors", "Paper"]
 wins = 0
 defeats = 0
 round = 0
 
 while True:
-    PlayerChoiseInt = int(input("Stone = 1; Scissors = 2; Paper = 3 : "))
+    PlayerChoiseInt = int(input("Rock = 1; Scissors = 2; Paper = 3 : "))
     OtherChoiseInt = random.randint(1, 3)
     comparison(PlayerChoiseInt, OtherChoiseInt)
     print("(rounds): ", round, " (wins): ", wins, " (defeats): ", defeats, " (Player choise): ", IntToString(PlayerChoiseInt), " (Other choise): ", IntToString(OtherChoiseInt), "\n\n\n")
