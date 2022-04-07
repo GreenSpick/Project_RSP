@@ -15,7 +15,7 @@ def comparison(a, b):
         wins += 1
         round += 1
     elif (a == 1 and b == 3) or (a == 2 and b == 1) or (a == 3 and b == 2):
-        print("\n" * 10, "                                You defeat")
+        print("\n" * 10, "                                You lose")
         defeats += 1
         round += 1
 
