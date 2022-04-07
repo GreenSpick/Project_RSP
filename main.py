@@ -9,13 +9,13 @@ def cleaning():
 def comparison(a, b):
     global wins, defeats, round
     if a == b:
-        print("\n\n\n\n\n\n\n\n", "                                No winner")
+        print("\n" * 10, "                                No winner")
     elif (a == 1 and b == 2) or (a == 3 and b == 1) or (a == 2 and b == 3):
-        print("\n\n\n\n\n\n\n\n", "                                You win")
+        print("\n" * 10, "                                You win")
         wins += 1
         round += 1
     elif (a == 1 and b == 3) or (a == 2 and b == 1) or (a == 3 and b == 2):
-        print("\n\n\n\n\n\n\n\n", "                                You defeat")
+        print("\n" * 10, "                                You defeat")
         defeats += 1
         round += 1
 
@@ -34,10 +34,10 @@ while True:
     print("(rounds): ", round, " (wins): ", wins, " (defeats): ", defeats, " (Player choise): ", IntToString(PlayerChoiseInt), " (Other choise): ", IntToString(OtherChoiseInt), "\n\n\n")
 
     if round == 3 and wins > defeats:
-        print("\n\n\n\n\n\n\n\n\n\n            ---------------You have won this game!---------------\n")
+        print("\n" * 10 ,"            ---------------You have won this game!---------------\n")
         cleaning()
         continue
     elif round == 3 and wins < defeats:
-        print("\n\n\n\n\n\n\n\n\n\n            ---------------You lost in this game!---------------\n")
+        print("\n" * 10 ,"            ---------------You lost in this game!---------------\n")
         cleaning()
         continue
