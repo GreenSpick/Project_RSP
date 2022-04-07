@@ -20,9 +20,9 @@ def comparison(a, b):
         round += 1
 
 def IntToString(a):
-    return option[a-1]
+    return option[a]
 
-option = ["Rock", "Scissors", "Paper"]
+option = {1 : "Rock", 2 : "Scissors", 3 : "Paper"}
 wins = 0
 defeats = 0
 round = 0
@@ -31,8 +31,11 @@ while True:
     PlayerChoiseInt = int(input("Rock = 1; Scissors = 2; Paper = 3 : "))
     OtherChoiseInt = random.randint(1, 3)
     comparison(PlayerChoiseInt, OtherChoiseInt)
-    print("(rounds): ", round, " (wins): ", wins, " (defeats): ", defeats, " (Player choise): ", IntToString(PlayerChoiseInt), " (Other choise): ", IntToString(OtherChoiseInt), "\n\n\n")
-
+    try:
+        print("(rounds): ", round, " (wins): ", wins, " (defeats): ", defeats, " (Player choise): ", IntToString(PlayerChoiseInt), " (Other choise): ", IntToString(OtherChoiseInt), "\n\n\n")
+    except BaseException:
+        print("\n" * 15, "Try again pliz")
+        continue
     if round == 3 and wins > defeats:
         print("\n" * 10 ,"            ---------------You have won this game!---------------\n")
         cleaning()
