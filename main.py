@@ -1,68 +1,80 @@
 import random
 
-win = 0
-lose = 0
+def comparison(a, b, c, g, f):
+    c = 0
+    g = 0
+    f = 0
+    
+    if a == b:
+        print("\n", "                                No winner")
+        return c, g, f
+    elif a == 1 and b == 2:
+        print("\n", "                                You win")
+        c += 1
+        f += 0
+        g += 1
+        return c, g, f
+    elif a == 1 and b == 3:
+        print("\n", "                                You defeat")
+        c += 1
+        g += 0
+        f += 1
+        return c, g, f
+    elif a == 3 and b == 1:
+        print("\n", "                                You win")
+        c += 1
+        g += 1
+        f += 0
+        return c, g, f
+    elif a == 2 and b == 3:
+        print("\n", "                                You win")
+        c += 1
+        f += 0
+        g += 1
+        return c, g, f
+    elif a == 2 and b == 1:
+        print("\n", "                                You defeat")
+        c += 1
+        f += 1
+        g += 0
+        return c, g, f
+    elif a == 3 and b == 2:
+        print("\n", "                                You defeat")
+        c += 1
+        g += 0
+        f += 1
+        return c, g, f
+
+def IntToString(a):
+    return option[a-1]
+
+option = ["Stone", "Scissors", "Paper"]
+wins = 0
+defeats = 0
 round = 0
 
-while(True):
-    sChoise = input("Exit from the game: exit ; Pliz choise: stone, scissors, paper: ")
-    iChoise = 0
-    bChoise = 0
-
-    if sChoise == "stone":
-        iChoise = 1
-    elif sChoise == "scissors":
-        iChoise = 2
-    elif sChoise == "paper":
-        iChoise = 3
-    else:
+while True:
+    PlayerChoiseInt = int(input("Stone = 1; Scissors = 2; Paper = 3 : "))
+    OtherChoiseInt = random.randint(1, 3)
+    if 0 > PlayerChoiseInt or 4 < PlayerChoiseInt:
         print("Error")
-    if iChoise > 0:
-        bChoise = random.randint(1, 3)
-        if bChoise == 1:
-            print("Opponent chose stone")
-        if bChoise == 2:
-            print("Opponent chose scissors")
-        else:
-            print("Opponent chose paper")
-
-        if bChoise == iChoise:
-            print("No winner")
-        elif iChoise == 1 and bChoise == 2:
-            win += 1
-            round += 1
-        elif iChoise == 2 and bChoise == 1:
-            lose += 1
-            round += 1
-        elif iChoise == 1 and bChoise == 3:
-            lose += 1
-            round += 1
-        elif iChoise == 3 and bChoise == 1:
-            win += 1
-            round += 1
-        elif iChoise == 2 and bChoise == 3:
-            win += 1
-            round += 1
-        elif iChoise == 3 and bChoise == 2:
-            lose += 1
-            round += 1
-    if win == 3:
-        print("You win")
-        lose = 0
-        win = 0
-    elif lose == 3:
-        print("You lose")
-        lose = 0
-        win = 0
-    if round == 3:
-        if win > lose:
-            print("You win")
-            lose = 0
-            win = 0
-        else:
-            print("You lose")
-            lose = 0
-            win = 0
-
-    print("Wins: ", win, "Lose: ", lose)
-    print("")
+        continue
+    PlayerChoiseStr = IntToString(PlayerChoiseInt)
+    OtherChoiseStr = IntToString(OtherChoiseInt)
+    r, w, d = comparison(PlayerChoiseInt, OtherChoiseInt, round, wins, defeats)
+    round += r
+    wins += w
+    defeats += d
+    print("(rounds): ", round, " (wins): ", wins, " (defeats): ", defeats, " (Player choise): ", PlayerChoiseStr, " (Other choise): ", OtherChoiseStr, "\n")
+    if round == 3 and wins > defeats:
+        print("            ---------------You have won this game!---------------\n")
+        wins = 0
+        defeats = 0
+        round = 0
+        continue
+    elif round == 3 and wins < defeats:
+        print("            ---------------You lost in this game!---------------\n")
+        wins = 0
+        defeats = 0
+        round = 0
+        continue
