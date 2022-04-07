@@ -1,2 +1,2 @@
-# Project_SSP
-Stone Scissors Paper
+# Project_RSP
+Rock Scissors Paper
