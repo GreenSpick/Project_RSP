@@ -4,44 +4,18 @@ def comparison(a, b, c, g, f):
     c = 0
     g = 0
     f = 0
-    
+
     if a == b:
         print("\n", "                                No winner")
         return c, g, f
-    elif a == 1 and b == 2:
-        print("\n", "                                You win")
-        c += 1
-        f += 0
-        g += 1
-        return c, g, f
-    elif a == 1 and b == 3:
-        print("\n", "                                You defeat")
-        c += 1
-        g += 0
-        f += 1
-        return c, g, f
-    elif a == 3 and b == 1:
+    elif (a == 1 and b == 2) or (a == 3 and b == 1) or (a == 2 and b == 3):
         print("\n", "                                You win")
         c += 1
         g += 1
-        f += 0
         return c, g, f
-    elif a == 2 and b == 3:
-        print("\n", "                                You win")
-        c += 1
-        f += 0
-        g += 1
-        return c, g, f
-    elif a == 2 and b == 1:
+    elif (a == 1 and b == 3) or (a == 2 and b == 1) or (a == 3 and b == 2):
         print("\n", "                                You defeat")
         c += 1
-        f += 1
-        g += 0
-        return c, g, f
-    elif a == 3 and b == 2:
-        print("\n", "                                You defeat")
-        c += 1
-        g += 0
         f += 1
         return c, g, f
 
